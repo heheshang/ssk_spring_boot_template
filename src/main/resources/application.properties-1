@@ -1,12 +1,7 @@
 spring.application.name=ssk_spring_boot_template
 spring.profiles.active=dev
 logging.level.org.springframework.boot.autoconfigure=debug
-# ???????
-#spring.datasource.url = jdbc:postgresql://pt001:5432/blog
-#spring.datasource.username = root
-#spring.datasource.password = root
-#spring.datasource.driver-class-name = org.postgresql.Driver
-# ????? master
+
 spring.datasource.dynamic.primary=master
 # ???????
 # ??? master

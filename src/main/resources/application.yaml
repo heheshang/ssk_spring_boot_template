@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: ssk_spring_boot_template
+  profiles:
+    active: dev
+logging:
+  level:
+    root: info
+    com.ssk.sh: debug
+
+  datasource:
+    dynamic:
+      primary: master
+      strict: false
+      aop:
+        enabled: true
+      datasource:
+        master:
+          url: jdbc:postgresql://pt001:5432/blog
+          username: root
+          password: root
+          driver-class-name: org.postgresql.Driver
+        slave1:
+          url: jdbc:postgresql://pt001:5432/langchain
+          username: root
+          password: root
+          driver-class-name: org.postgresql.Driver
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.ssk.sh.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+      id-type: ASSIGN_ID
+      db-type: POSTGRE_SQL
+
+# springdoc-openapi项目配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.ssk.sh.controller
+# knife4j的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn

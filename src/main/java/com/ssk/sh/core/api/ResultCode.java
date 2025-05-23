@@ -1,4 +1,4 @@
-package com.ssk.sh.res;
+package com.ssk.sh.core.api;
 
 /**
  * @author T0220165
@@ -14,6 +14,7 @@ public enum ResultCode implements StatusCode {
     INTERNAL_SERVER_ERROR(500, "服务器内部错误"),
     BAD_GATEWAY(502, "网关错误"),
     SERVICE_UNAVAILABLE(503, "服务不可用"),
+    NOT_ACCEPTABLE (406, "不可接受"),
     ;
     private int code;
     private String message;

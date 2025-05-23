@@ -1,8 +1,11 @@
-package com.ssk.sh.res;
+package com.ssk.sh.core.api;
+
+import lombok.Getter;
 
 /**
  * @author T0220165
  */
+@Getter
 public class ResultVo<T> {
 
     private int code;

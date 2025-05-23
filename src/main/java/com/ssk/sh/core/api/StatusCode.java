@@ -1,4 +1,4 @@
-package com.ssk.sh.res;
+package com.ssk.sh.core.api;
 
 /**
  * @author T0220165

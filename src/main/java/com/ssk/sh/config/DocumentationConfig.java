@@ -1,32 +1,30 @@
-package com.ssk.sh;
+package com.ssk.sh.config;
 
+
+
+import io.micrometer.common.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.boot.Banner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 /**
- * @author T0220165
+ * @Classname DocumentationConfig
+ * @Description TODO
+ * @Version 1.0.0
+ * @Date 2024/6/11 15:28
+ * @Created by Administrator
  */
-@SpringBootApplication
+
+
+
+@Configuration
 @Slf4j
-public class SskSpringBootTemplateApplication {
+public class DocumentationConfig {
 
-    public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(SskSpringBootTemplateApplication.class);
-        Environment env = app.run(args).getEnvironment();
-        app.setBannerMode(Banner.Mode.CONSOLE);
-        logApplicationStartup(env);
-    }
-
-
-
-    private static void logApplicationStartup(Environment env) {
+    public void logApplicationStartup(Environment env) {
         String protocol = "http";
         if (env.getProperty("server.ssl.key-store") != null) {
             protocol = "https";

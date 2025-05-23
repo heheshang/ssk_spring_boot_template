@@ -3,6 +3,8 @@ spring:
     name: ssk_spring_boot_template
   profiles:
     active: dev
+server:
+  port: 8080
 logging:
   level:
     root: info
@@ -16,12 +18,12 @@ logging:
         enabled: true
       datasource:
         master:
-          url: jdbc:postgresql://pt001:5432/blog
+          url: jdbc:postgresql://10.211.55.4:5432/user
           username: root
           password: root
           driver-class-name: org.postgresql.Driver
         slave1:
-          url: jdbc:postgresql://pt001:5432/langchain
+          url: jdbc:postgresql://10.211.55.4:5432/chat
           username: root
           password: root
           driver-class-name: org.postgresql.Driver
@@ -54,7 +56,19 @@ springdoc:
       paths-to-match: '/**'
       packages-to-scan: com.ssk.sh.controller
 # knife4j的增强配置，不需要增强可以不配
+#knife4j配置
 knife4j:
+  #是否启用增强设置
   enable: true
+  #开启生产环境屏蔽
+  production: false
+  #是否启用登录认证
+  basic:
+    enable: true
+    username: admin
+    password: 123456
   setting:
     language: zh_cn
+    enable-version: true
+    enable-swagger-models: true
+    swagger-model-name: 用户模块

@@ -2,6 +2,7 @@ package com.ssk.sh.core.exception;
 
 import com.ssk.sh.core.api.ResultCode;
 import com.ssk.sh.core.api.ResultVo;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.HttpMediaTypeNotAcceptableException;
@@ -17,6 +18,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMediaTypeNotAcceptableException.class)
     public ResultVo handleHttpMediaTypeNotAcceptableException(HttpMediaTypeNotAcceptableException e) {
         return new ResultVo(ResultCode.NOT_ACCEPTABLE);
+    }
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResultVo handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
+        String message = e.getCause() != null ? e.getCause().getMessage() : "参数解析失败";
+        return new ResultVo(ResultCode.PARAM_ERROR, message);
     }
 
     @ExceptionHandler(BindException.class)

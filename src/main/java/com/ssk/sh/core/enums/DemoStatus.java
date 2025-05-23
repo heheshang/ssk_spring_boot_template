@@ -1,12 +1,16 @@
 package com.ssk.sh.core.enums;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;
 
 /**
  * @author T0220165
  */
+@JsonFormat(shape = JsonFormat.Shape.STRING)
+@JsonDeserialize(using = DemoStatusDeserializer.class)
 @Getter
 public enum DemoStatus {
     SUCCESS(200, "操作成功"),

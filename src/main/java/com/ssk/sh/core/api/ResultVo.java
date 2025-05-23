@@ -6,24 +6,25 @@ import lombok.Getter;
  * @author T0220165
  */
 @Getter
-public class ResultVo<T> {
+public class ResultVo {
 
     private int code;
     private String message;
-    private T data;
+    private Object data;
 
-    public ResultVo(int code, String message, T data) {
+    public ResultVo(int code, String message, Object data) {
         this.code = code;
         this.message = message;
         this.data = data;
     }
 
-    public ResultVo(T data) {
+    public ResultVo(Object data) {
         this.code = ResultCode.SUCCESS.getCode();
         this.message = ResultCode.SUCCESS.getMessage();
         this.data = data;
     }
-     public ResultVo(StatusCode statusCode,T data) {
+
+    public ResultVo(StatusCode statusCode, Object data) {
         this.code = statusCode.getCode();
         this.message = statusCode.getMessage();
         this.data = data;

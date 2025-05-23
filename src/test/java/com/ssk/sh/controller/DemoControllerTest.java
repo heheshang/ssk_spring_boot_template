@@ -20,7 +20,7 @@ class DemoControllerTest extends BaseTest {
 
         MvcResult mvcResult = mockMvc.perform(post("/demo")
                 .contentType("application/json")
-                .content("{\"name\":\"ssk\",\"price\":100,\"remark\":\"remark\",\"status\":\"success\"}")
+                .content("{\"name\":\"ssk\",\"price\":-1,\"remark\":\"remark\",\"status\":\"success\"}")
                 .accept("application/json")
                 .characterEncoding("UTF-8")
 

@@ -15,6 +15,9 @@ public enum ResultCode implements StatusCode {
     BAD_GATEWAY(502, "网关错误"),
     SERVICE_UNAVAILABLE(503, "服务不可用"),
     NOT_ACCEPTABLE (406, "不可接受"),
+    RESPONSE_BACK_ERROR(504, "响应超时"),
+    VALIDATE_ERROR(604, "响应超时"),
+    PARAM_ERROR(700, "参数校验失败"),
     ;
     private int code;
     private String message;

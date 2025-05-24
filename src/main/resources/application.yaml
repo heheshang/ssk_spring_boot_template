@@ -3,31 +3,29 @@ spring:
     name: ssk_spring_boot_template
   profiles:
     active: dev
+  datasource:
+    dynamic:
+      primary: master
+      aop:
+        enabled: true
+      strict: false
+      datasource:
+        master:
+          url: jdbc:postgresql://10.211.55.4:5432/user
+          username: postgres
+          password: postgres
+          driver-class-name: org.postgresql.Driver
+        slave1:
+          url: jdbc:postgresql://10.211.55.4:5432/chat
+          username: postgres
+          password: postgres
+          driver-class-name: org.postgresql.Driver
 server:
   port: 8080
 logging:
   level:
     root: info
     com.ssk.sh: debug
-
-  datasource:
-    dynamic:
-      primary: master
-      strict: false
-      aop:
-        enabled: true
-      datasource:
-        master:
-          url: jdbc:postgresql://10.211.55.4:5432/user
-          username: root
-          password: root
-          driver-class-name: org.postgresql.Driver
-        slave1:
-          url: jdbc:postgresql://10.211.55.4:5432/chat
-          username: root
-          password: root
-          driver-class-name: org.postgresql.Driver
-
 # MyBatis-Plus 配置
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
